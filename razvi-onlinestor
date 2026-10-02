@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RAZVI ONLINE STORE | Mobile Accessories</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    color:#17202a;
+}
+
+header{
+    background:#111827;
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#00d084;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+}
+
+.hero{
+    min-height:500px;
+    background:linear-gradient(135deg,#111827,#26354d);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#00d084;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#00d084;
+    color:#07130e;
+    padding:13px 25px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.section{
+    padding:55px 5%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.categories{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.category{
+    background:white;
+    border:1px solid #ddd;
+    padding:12px 20px;
+    border-radius:30px;
+    cursor:pointer;
+}
+
+.category:hover{
+    background:#00d084;
+}
+
+.search-box{
+    max-width:600px;
+    margin:0 auto 30px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:16px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.product{
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+}
+
+.product img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    background:#eee;
+}
+
+.product-info{
+    padding:18px;
+}
+
+.product-info h3{
+    margin-bottom:8px;
+}
+
+.price{
+    font-size:21px;
+    font-weight:bold;
+    color:#00a66a;
+}
+
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    margin-left:8px;
+    font-size:14px;
+}
+
+.product-info p{
+    color:#666;
+    margin:10px 0;
+    font-size:14px;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+}
+
+.actions button{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.order-btn{
+    background:#00d084;
+}
+
+.cart-btn{
+    background:#111827;
+    color:white;
+}
+
+.offer{
+    background:#111827;
+    color:white;
+    border-radius:18px;
+    padding:40px;
+    text-align:center;
+}
+
+.offer h2{
+    color:#00d084;
+    margin-bottom:10px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.feature h3{
+    margin:10px 0;
+}
+
+.review-box{
+    max-width:700px;
+    margin:auto;
+}
+
+.review{
+    background:white;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:12px;
+}
+
+.stars{
+    color:#f5b301;
+    margin-bottom:8px;
+}
+
+.order-section{
+    background:white;
+    max-width:700px;
+    margin:auto;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.order-section input,
+.order-section textarea,
+.order-section select{
+    width:100%;
+    padding:13px;
+    margin:8px 0 15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+footer{
+    background:#111827;
+    color:white;
+    padding:40px 5%;
+    text-align:center;
+}
+
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#25d366;
+    color:white;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    text-decoration:none;
+    z-index:2000;
+}
+
+.cart{
+    position:fixed;
+    right:20px;
+    top:80px;
+    background:#00d084;
+    color:#111;
+    padding:12px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    z-index:1000;
+}
+
+@media(max-width:700px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0 6px;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RAZVI <span>ONLINE STORE</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#offers">Offers</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="cart">
+    🛒 Cart: <span id="cartCount">0</span>
+</div>
+
+<section class="hero" id="home">
+    <div>
+        <h1>RAZVI <span>ONLINE STORE</span></h1>
+        <p>Mobile Accessories • Quality Products • Easy Ordering</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Shop By Category</h2>
+
+    <div class="categories">
+        <div class="category" onclick="filterProducts('All')">All</div>
+        <div class="category" onclick="filterProducts('Earbuds')">🎧 Earbuds</div>
+        <div class="category" onclick="filterProducts('Neckbands')">🎵 Neckbands</div>
+        <div class="category" onclick="filterProducts('Chargers')">🔌 Chargers</div>
+        <div class="category" onclick="filterProducts('Cables')">🔗 Cables</div>
+        <div class="category" onclick="filterProducts('Covers')">📱 Covers</div>
+        <div class="category" onclick="filterProducts('Speakers')">🔊 Speakers</div>
+    </div>
+</section>
+
+<section class="section" id="products">
+
+    <h2 class="section-title">Our Products</h2>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 Search products..."
+            onkeyup="searchProducts()"
+        >
+    </div>
+
+    <div class="products" id="productList"></div>
+
+</section>
+
+<section class="section" id="offers">
+
+    <div class="offer">
+        <h2>🔥 SPECIAL OFFER 🔥</h2>
+        <p>Check our latest mobile accessories and special prices.</p>
+        <br>
+        <a href="#products" class="btn">View Products</a>
+    </div>
+
+</section>
+
+<section class="section">
+
+    <h2 class="section-title">Why Choose Us?</h2>
+
+    <div class="features">
+
+        <div class="feature">
+            <div style="font-size:35px;">🚚</div>
+            <h3>Fast Delivery</h3>
+            <p>Fast and reliable delivery.</p>
+        </div>
+
+        <div class="feature">
+            <div style="font-size:35px;">✅</div>
+            <h3>Quality Products</h3>
+            <p>Good quality mobile accessories.</p>
+        </div>
+
+        <div class="feature">
+            <div style="font-size:35px;">💬</div>
+            <h3>Easy Ordering</h3>
+            <p>Order easily through WhatsApp.</p>
+        </div>
+
+        <div class="feature">
+            <div style="font-size:35px;">⭐</div>
+            <h3>Customer Support</h3>
+            <p>We care about our customers.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="reviews">
+
+    <h2 class="section-title">Customer Reviews</h2>
+
+    <div class="review-box">
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Great product and good service.</p>
+            <strong>— Customer</strong>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Product received safely. Very good experience.</p>
+            <strong>— Customer</strong>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>Fast response and easy ordering.</p>
+            <strong>— Customer</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="order">
+
+    <h2 class="section-title">Place Your Order</h2>
+
+    <div class="order-section">
+
+        <label>Product</label>
+        <input id="orderProduct" placeholder="Product name">
+
+        <label>Your Name</label>
+        <input id="customerName" placeholder="Enter your name">
+
+        <label>WhatsApp / Phone</label>
+        <input id="customerPhone" placeholder="03XXXXXXXXX">
+
+        <label>Complete Address</label>
+        <textarea id="customerAddress" rows="4"
+        placeholder="Enter complete delivery address"></textarea>
+
+        <label>Order Notes</label>
+        <textarea id="orderNotes" rows="3"
+        placeholder="Any special instructions?"></textarea>
+
+        <button class="btn" style="width:100%;" onclick="sendOrder()">
+            📲 Order Now on WhatsApp
+        </button>
+
+    </div>
+
+</section>
+
+<section class="section" id="contact">
+
+    <h2 class="section-title">Contact RAZVI ONLINE STORE</h2>
+
+    <div class="features">
+
+        <div class="feature">
+            <h3>📞 Phone</h3>
+            <p>03XXXXXXXXX</p>
+        </div>
+
+        <div class="feature">
+            <h3>💬 WhatsApp</h3>
+            <p>Order directly on WhatsApp.</p>
+        </div>
+
+        <div class="feature">
+            <h3>📍 Location</h3>
+            <p>RAZVI BROTHER MOBILE CENTER</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h2>RAZVI ONLINE STORE</h2>
+
+    <p>Mobile Accessories & More</p>
+
+    <br>
+
+    <p>© 2026 RAZVI ONLINE STORE. All Rights Reserved.</p>
+
+</footer>
+
+<a
+    class="whatsapp"
+    href="https://wa.me/923000000000"
+    target="_blank">
+    💬
+</a>
+
+<script>
+
+/* =========================================
+   PRODUCTS
+   Add your products here
+========================================= */
+
+const products = [
+
+    {
+        name:"MBO KL50 Neckband",
+        category:"Neckbands",
+        price:1499,
+        oldPrice:1799,
+        image:"https://via.placeholder.com/500x500?text=MBO+KL50",
+        description:"Wireless Bluetooth Neckband"
+    },
+
+    {
+        name:"Premium Wireless Earbuds",
+        category:"Earbuds",
+        price:1999,
+        oldPrice:2499,
+        image:"https://via.placeholder.com/500x500?text=Earbuds",
+        description:"Wireless Bluetooth Earbuds"
+    },
+
+    {
+        name:"Fast Charger",
+        category:"Chargers",
+        price:999,
+        oldPrice:1199,
+        image:"https://via.placeholder.com/500x500?text=Charger",
+        description:"Fast charging mobile adapter"
+    },
+
+    {
+        name:"USB Type-C Cable",
+        category:"Cables",
+        price:399,
+        oldPrice:499,
+        image:"https://via.placeholder.com/500x500?text=USB+Cable",
+        description:"High quality charging cable"
+    },
+
+    {
+        name:"Premium Mobile Cover",
+        category:"Covers",
+        price:499,
+        oldPrice:699,
+        image:"https://via.placeholder.com/500x500?text=Mobile+Cover",
+        description:"Stylish protective mobile cover"
+    },
+
+    {
+        name:"Bluetooth Speaker",
+        category:"Speakers",
+        price:2499,
+        oldPrice:2999,
+        image:"https://via.placeholder.com/500x500?text=Speaker",
+        description:"Portable Bluetooth speaker"
+    }
+
+];
+
+
+/* =========================================
+   DISPLAY PRODUCTS
+========================================= */
+
+function displayProducts(list){
+
+    const productList = document.getElementById("productList");
+
+    productList.innerHTML = "";
+
+    if(list.length === 0){
+        productList.innerHTML =
+        "<p style='text-align:center;'>No products found.</p>";
+        return;
+    }
+
+    list.forEach((product,index)=>{
+
+        productList.innerHTML += `
+
+        <div class="product">
+
+            <img src="${product.image}" alt="${product.name}">
+
+            <div class="product-info">
+
+                <h3>${product.name}</h3>
+
+                <div>
+
+                    <span class="price">
+                        Rs. ${product.price}
+                    </span>
+
+                    <span class="old-price">
+                        Rs. ${product.oldPrice}
+                    </span>
+
+                </div>
+
+                <p>${product.description}</p>
+
+                <div class="actions">
+
+                    <button
+                        class="order-btn"
+                        onclick="orderProduct(${index})">
+                        Order Now
+                    </button>
+
+                    <button
+                        class="cart-btn"
+                        onclick="addToCart()">
+                        🛒 Cart
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+function searchProducts(){
+
+    const search =
+    document.getElementById("search").value.toLowerCase();
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(search) ||
+        product.category.toLowerCase().includes(search)
+    );
+
+    displayProducts(filtered);
+
+}
+
+
+/* =========================================
+   CATEGORY FILTER
+========================================= */
+
+function filterProducts(category){
+
+    if(category === "All"){
+        displayProducts(products);
+        return;
+    }
+
+    const filtered =
+    products.filter(product =>
+        product.category === category
+    );
+
+    displayProducts(filtered);
+
+}
+
+
+/* =========================================
+   CART
+========================================= */
+
+let cartCount = 0;
+
+function addToCart(){
+
+    cartCount++;
+
+    document.getElementById("cartCount").innerText =
+    cartCount;
+
+    alert("Product added to cart!");
+
+}
+
+
+/* =========================================
+   ORDER PRODUCT
+========================================= */
+
+function orderProduct(index){
+
+    document.getElementById("orderProduct").value =
+    products[index].name;
+
+    document.getElementById("order")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================
+   WHATSAPP ORDER
+========================================= */
+
+function sendOrder(){
+
+    const product =
+    document.getElementById("orderProduct").value;
+
+    const name =
+    document.getElementById("customerName").value;
+
+    const phone =
+    document.getElementById("customerPhone").value;
+
+    const address =
+    document.getElementById("customerAddress").value;
+
+    const notes =
+    document.getElementById("orderNotes").value;
+
+    if(!product || !name || !phone || !address){
+
+        alert("Please fill all required information.");
+
+        return;
+
+    }
+
+    const whatsappNumber = "923000000000";
+
+    const message =
+
+`NEW ORDER - RAZVI ONLINE STORE
+
+Product: ${product}
+
+Customer Name: ${name}
+
+Phone: ${phone}
+
+Address: ${address}
+
+Notes: ${notes}
+
+Please confirm my order.`;
+
+    const url =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+    window.open(url,"_blank");
+
+}
+
+
+/* =========================================
+   START WEBSITE
+========================================= */
+
+displayProducts(products);
+
+</script>
+
+</body>
+</html>
